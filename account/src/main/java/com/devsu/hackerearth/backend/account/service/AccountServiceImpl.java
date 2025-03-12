@@ -1,6 +1,7 @@
 package com.devsu.hackerearth.backend.account.service;
 
 import java.util.List;
+import java.util.Objects;
 
 import org.springframework.stereotype.Service;
 
@@ -15,42 +16,47 @@ import com.devsu.hackerearth.backend.account.repository.AccountRepository;
 public class AccountServiceImpl implements AccountService {
 
 	private final AccountRepository accountRepository;
+  private final ClientService clientService;
 
-	public AccountServiceImpl(AccountRepository accountRepository) {
+	public AccountServiceImpl(AccountRepository accountRepository, ClientService clientService) {
 		this.accountRepository = accountRepository;
+    this.clientService = clientService;
 	}
 
     @Override
     public List<AccountDto> getAll() {
         // Get all accounts
-		return AccountMapper.toDto(accountRepository.findAll());
+		    return AccountMapper.toDto(accountRepository.findAll());
     }
 
     
     @Override
     public List<AccountDto> getAllByClientId(Long clientId) {
-		return AccountMapper.toDto(accountRepository.getAllByClientId(clientId));
+		    return AccountMapper.toDto(accountRepository.getAllByClientId(clientId));
     }
 
     @Override
     public AccountDto getById(Long id) {
         // Get accounts by id
-		return AccountMapper.toDto(findById(id));
+		    return AccountMapper.toDto(findById(id));
     }
 
     @Override
     public AccountDto create(AccountDto accountDto) {
         // Create account
-		return null;
+        clientExist(accountDto.getClientId());
+        Account account = AccountMapper.toEntity(accountDto);
+        accountRepository.save(account);
+		    return AccountMapper.toDto(account);
     }
 
     @Override
     public AccountDto update(AccountDto accountDto) {
         // Update account
+        clientExist(accountDto.getClientId());
         Account account = AccountMapper.toEntity(accountDto);
-        account.setId(null);
         accountRepository.save(account);
-		return AccountMapper.toDto(account);
+		    return AccountMapper.toDto(account);
     }
 
     @Override
@@ -59,7 +65,7 @@ public class AccountServiceImpl implements AccountService {
         Account account = findById(id);
         account.setActive(partialAccountDto.isActive());
         accountRepository.save(account);
-		return AccountMapper.toDto(account);
+		    return AccountMapper.toDto(account);
     }
 
     @Override
@@ -69,8 +75,12 @@ public class AccountServiceImpl implements AccountService {
         accountRepository.delete(account);
     }
     
-	private Account findById(Long id){
-		return accountRepository.findById(id).orElseThrow(() -> new NotFoundException("Account not found for id " + id));
-	}
+    private Account findById(Long id){
+      return accountRepository.findById(id).orElseThrow(() -> new NotFoundException("Account not found for id " + id));
+    }
+
+    private void clientExist(Long clientId){
+      if (Objects.isNull(clientService.getClientById(clientId))) throw new NotFoundException("Not found client with id"+ clientId);
+    }
 
 }

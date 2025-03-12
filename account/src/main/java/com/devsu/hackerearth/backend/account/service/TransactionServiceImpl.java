@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
@@ -99,12 +100,19 @@ public class TransactionServiceImpl implements TransactionService {
 		return transactionRepository.findById(id).orElseThrow(() -> new NotFoundException("Transacction not found for id " + id));
 	}
 
-    
     private void balanceOperation(TransactionDto transactionDto) {
-        double tempBalance = transactionDto.getBalance()+transactionDto.getAmount();
+        double tempBalance = getBalance(transactionDto.getAccountId())+transactionDto.getAmount();
         if (tempBalance < 0){
             throw new InsufficientFundsException("Saldo no disponible");
         }
         transactionDto.setBalance(tempBalance);
+    }
+
+    private double getBalance(Long accountId) {
+        Optional<Transaction> lastTransaction = transactionRepository.findTopByAccountIdOrderByDateDesc(accountId);
+        if (lastTransaction.isPresent()) {
+            return lastTransaction.get().getBalance();
+        }
+        return accountService.getById(accountId).getInitialAmount();
     }
 }

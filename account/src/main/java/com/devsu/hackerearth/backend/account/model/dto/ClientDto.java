@@ -13,5 +13,5 @@ public class ClientDto {
 	private int age;
 	private String address;
 	private String phone;
-	private boolean isActive;
+	private boolean active;
 }

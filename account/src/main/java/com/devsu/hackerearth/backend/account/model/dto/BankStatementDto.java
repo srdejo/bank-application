@@ -8,13 +8,13 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class BankStatementDto {
-    
+
 	private Date date;
 	private String client;
 	private String accountNumber;
 	private String accountType;
 	private double initialAmount;
-    private boolean isActive;
+	private boolean active;
 	private String transactionType;
 	private double amount;
 	private double balance;
