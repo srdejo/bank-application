@@ -8,6 +8,7 @@ import com.devsu.hackerearth.backend.account.model.dto.PartialAccountDto;
 public interface AccountService {
 
     public List<AccountDto> getAll();
+    public List<AccountDto> getAllByClientId(Long clientId);
 	public AccountDto getById(Long id);
 	public AccountDto create(AccountDto accountDto);
 	public AccountDto update(AccountDto accountDto);

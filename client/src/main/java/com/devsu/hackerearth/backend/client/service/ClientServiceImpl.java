@@ -4,8 +4,11 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.devsu.hackerearth.backend.client.controller.ExceptionHandler.NotFoundException;
+import com.devsu.hackerearth.backend.client.model.Client;
 import com.devsu.hackerearth.backend.client.model.dto.ClientDto;
 import com.devsu.hackerearth.backend.client.model.dto.PartialClientDto;
+import com.devsu.hackerearth.backend.client.model.mapper.ClientMapper;
 import com.devsu.hackerearth.backend.client.repository.ClientRepository;
 
 @Service
@@ -20,35 +23,49 @@ public class ClientServiceImpl implements ClientService {
 	@Override
 	public List<ClientDto> getAll() {
 		// Get all clients
-		return null;
+		return ClientMapper.toDto(clientRepository.findAll());
 	}
 
 	@Override
 	public ClientDto getById(Long id) {
 		// Get clients by id
-		return null;
+
+		return ClientMapper.toDto(findById(id));
 	}
 
 	@Override
 	public ClientDto create(ClientDto clientDto) {
 		// Create client
-		return null;
+		Client client = ClientMapper.toEntity(clientDto);
+		client.setId(null);
+		clientRepository.save(client);
+		return ClientMapper.toDto(client);
 	}
 
 	@Override
 	public ClientDto update(ClientDto clientDto) {
 		// Update client
-		return null;
+		Client client = ClientMapper.toEntity(clientDto);
+		clientRepository.save(client);
+		return ClientMapper.toDto(client);
 	}
 
 	@Override
     public ClientDto partialUpdate(Long id, PartialClientDto partialClientDto) {
         // Partial update account
-		return null;
+		Client client = findById(id);
+		client.setActive(partialClientDto.isActive());
+		clientRepository.save(client);
+		return ClientMapper.toDto(client);
     }
 
 	@Override
 	public void deleteById(Long id) {
-		// Delete client
+		Client client = findById(id);
+		clientRepository.delete(client);
+	}
+
+	private Client findById(Long id){
+		return clientRepository.findById(id).orElseThrow(() -> new NotFoundException("CLient not found for id " + id));
 	}
 }

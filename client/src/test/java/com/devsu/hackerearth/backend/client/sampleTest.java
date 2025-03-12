@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import com.devsu.hackerearth.backend.client.controller.ClientController;
+import com.devsu.hackerearth.backend.client.model.Client;
 import com.devsu.hackerearth.backend.client.model.dto.ClientDto;
 import com.devsu.hackerearth.backend.client.service.ClientService;
 
@@ -31,5 +32,17 @@ public class sampleTest {
         // Assert
         assertEquals(HttpStatus.CREATED, response.getStatusCode());
         assertEquals(createdClient, response.getBody());
+    }
+
+    @Test
+    void testClientGettersAndSetter() {
+        // Arrange
+        Client client = new Client();
+        client.setId(1L);
+        client.setDni("12345678");
+
+        assertEquals(1L, client.getId());
+        assertEquals("12345678", client.getDni());
+
     }
 }
