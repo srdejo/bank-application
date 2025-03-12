@@ -1,14 +1,22 @@
 package com.devsu.hackerearth.backend.account.service;
 
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
 import com.devsu.hackerearth.backend.account.controller.ExceptionHandler.InsufficientFundsException;
 import com.devsu.hackerearth.backend.account.controller.ExceptionHandler.NotFoundException;
 import com.devsu.hackerearth.backend.account.model.Transaction;
+import com.devsu.hackerearth.backend.account.model.dto.AccountDto;
+import com.devsu.hackerearth.backend.account.model.dto.BankStatementDto;
+import com.devsu.hackerearth.backend.account.model.dto.ClientDto;
 import com.devsu.hackerearth.backend.account.model.dto.TransactionDto;
+import com.devsu.hackerearth.backend.account.model.mapper.BankStatementMapper;
 import com.devsu.hackerearth.backend.account.model.mapper.TransactionMapper;
 import com.devsu.hackerearth.backend.account.repository.TransactionRepository;
 
@@ -16,9 +24,13 @@ import com.devsu.hackerearth.backend.account.repository.TransactionRepository;
 public class TransactionServiceImpl implements TransactionService {
 
 	private final TransactionRepository transactionRepository;
+    private final AccountService accountService;
+    private final ClientService clientService;
 
-	public TransactionServiceImpl(TransactionRepository transactionRepository) {
+	public TransactionServiceImpl(TransactionRepository transactionRepository, AccountService accountService, ClientService clientService) {
 		this.transactionRepository = transactionRepository;
+        this.accountService = accountService;
+        this.clientService = clientService;
 	}
 
     @Override
@@ -44,12 +56,36 @@ public class TransactionServiceImpl implements TransactionService {
     }
         
     @Override
-    public List<TransactionDto> getAllByAccountClientIdAndDateBetween(Long accountId, Date dateTransactionStart,
+    public List<BankStatementDto> getAllByAccountClientIdAndDateBetween(Long clientId, Date dateTransactionStart,
             Date dateTransactionEnd) {
         // Report
-		return TransactionMapper.toDto(transactionRepository.findAllByAccountIdAndDateBetween(accountId, dateTransactionStart, dateTransactionEnd));
-    }
+        List<AccountDto> accounts = accountService.getAllByClientId(clientId);
+        if (accounts.isEmpty()) {
+            return Collections.emptyList();
+        }
 
+        List<Transaction> transactions = accounts.stream()
+            .map(account -> transactionRepository.findAllByAccountIdAndDateBetween(clientId, dateTransactionStart, dateTransactionEnd))
+            .flatMap(List::stream) // Aplanar la lista de listas de transacciones
+            .collect(Collectors.toList());
+
+        if (transactions.isEmpty()) {
+            return Collections.emptyList();
+        }
+
+            // Crear un mapa de AccountDto por ID
+        Map<Long, AccountDto> accountMap = accounts.stream()
+            .collect(Collectors.toMap(AccountDto::getId, account -> account));
+
+        // Obtener el nombre del cliente
+        ClientDto client = clientService.getClientById(clientId);
+        String clientName = "";
+        if (Objects.nonNull(client)) clientName = client.getName();
+
+        // Convertir transacciones a BankStatementDto usando el mapper optimizado
+        return BankStatementMapper.toDtoList(transactions, accountMap, clientName);
+    } 
+    
     @Override
     public TransactionDto getLastByAccountId(Long accountId) {
         // If you need it

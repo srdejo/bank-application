@@ -4,13 +4,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import com.devsu.hackerearth.backend.account.model.Transaction;
 import com.devsu.hackerearth.backend.account.model.dto.AccountDto;
 import com.devsu.hackerearth.backend.account.model.dto.BankStatementDto;
-import com.devsu.hackerearth.backend.account.model.dto.TransactionDto;
 
 public class BankStatementMapper {
  
-    public static BankStatementDto toDto(TransactionDto transaction, AccountDto account, String clientName) {
+    public static BankStatementDto toDto(Transaction transaction, AccountDto account, String clientName) {
         if (transaction == null || account == null) {
             throw new IllegalArgumentException("Transaction or Account cannot be null");
         }
@@ -28,7 +28,7 @@ public class BankStatementMapper {
         );
     }
 
-    public static List<BankStatementDto> toDtoList(List<TransactionDto> transactions, Map<Long, AccountDto> accountMap, String clientName) {
+    public static List<BankStatementDto> toDtoList(List<Transaction> transactions, Map<Long, AccountDto> accountMap, String clientName) {
         return transactions.stream()
             .map(transaction -> {
                 AccountDto account = accountMap.get(transaction.getAccountId());
