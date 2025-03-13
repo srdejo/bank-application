@@ -11,6 +11,6 @@ public class AccountDto {
 	private String number;
 	private String type;
 	private double initialAmount;
-	private boolean active;
+	private boolean isActive;
 	private Long clientId;
 }

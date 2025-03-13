@@ -10,5 +10,5 @@ import lombok.Setter;
 @Setter
 public class Client extends Person {
 	private String password;
-	private boolean active;
+	private boolean isActive;
 }

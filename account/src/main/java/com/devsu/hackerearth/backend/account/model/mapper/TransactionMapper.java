@@ -29,6 +29,7 @@ public class TransactionMapper {
             return null;
         }
         Transaction transaction = new Transaction();
+        transaction.setId(transactionDto.getId());
         transaction.setDate(transactionDto.getDate());
         transaction.setType(transactionDto.getType());
         transaction.setAmount(transactionDto.getAmount());

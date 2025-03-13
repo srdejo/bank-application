@@ -38,7 +38,7 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public AccountDto getById(Long id) {
         // Get accounts by id
-		    return AccountMapper.toDto(findById(id));
+        return AccountMapper.toDto(findById(id));
     }
 
     @Override
@@ -47,16 +47,16 @@ public class AccountServiceImpl implements AccountService {
         clientExist(accountDto.getClientId());
         Account account = AccountMapper.toEntity(accountDto);
         accountRepository.save(account);
-		    return AccountMapper.toDto(account);
+        return AccountMapper.toDto(account);
     }
 
     @Override
     public AccountDto update(AccountDto accountDto) {
         // Update account
         clientExist(accountDto.getClientId());
-        Account account = AccountMapper.toEntity(accountDto);
-        accountRepository.save(account);
-		    return AccountMapper.toDto(account);
+        Account account = findById(accountDto.getId());
+        accountRepository.save(AccountMapper.toEntity(account, accountDto));
+        return AccountMapper.toDto(account);
     }
 
     @Override
@@ -65,7 +65,7 @@ public class AccountServiceImpl implements AccountService {
         Account account = findById(id);
         account.setActive(partialAccountDto.isActive());
         accountRepository.save(account);
-		    return AccountMapper.toDto(account);
+        return AccountMapper.toDto(account);
     }
 
     @Override
@@ -80,7 +80,7 @@ public class AccountServiceImpl implements AccountService {
     }
 
     private void clientExist(Long clientId){
-      if (Objects.isNull(clientService.getClientById(clientId))) throw new NotFoundException("Not found client with id"+ clientId);
+      if (Objects.isNull(clientService.getClientById(clientId))) throw new NotFoundException("Not found client with id "+ clientId);
     }
 
 }

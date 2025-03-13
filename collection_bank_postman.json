@@ -298,7 +298,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"id\": 1,\r\n  \"number\": \"1234567890\",\r\n  \"type\": \"SAVINGS\",\r\n  \"initialAmount\": 150000.00,\r\n  \"isActive\": true,\r\n  \"clientId\": 1\r\n}\r\n",
+							"raw": "{\r\n  \"id\": 1,\r\n  \"number\": \"1234567890\",\r\n  \"type\": \"SAVINGS\",\r\n  \"initialAmount\": 150000.00,\r\n  \"active\": true,\r\n  \"clientId\": 1\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -349,7 +349,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"id\": 1,\r\n  \"number\": \"1234567890\",\r\n  \"type\": \"SAVINGS\",\r\n  \"initialAmount\": 150000.00,\r\n  \"isActive\": true,\r\n  \"clientId\": 1001\r\n}\r\n",
+							"raw": "{\r\n  \"id\": 1,\r\n  \"number\": \"1234567890\",\r\n  \"type\": \"SAVINGS\",\r\n  \"initialAmount\": 120000.00,\r\n  \"active\": true,\r\n  \"clientId\": 1\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -401,7 +401,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"isActive\": false\r\n}\r\n",
+							"raw": "{\r\n  \"active\": true\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -574,7 +574,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"id\": 1,\r\n  \"dni\": \"12345678\",\r\n  \"name\": \"Juan Pérez\",\r\n  \"password\": \"securePass123\",\r\n  \"gender\": \"M\",\r\n  \"age\": 30,\r\n  \"address\": \"Calle Falsa 123, Ciudad\",\r\n  \"phone\": \"+123456789\",\r\n  \"isActive\": true\r\n}",
+							"raw": "{\r\n  \"id\": 1,\r\n  \"dni\": \"12345678\",\r\n  \"name\": \"Juan Pérez\",\r\n  \"password\": \"securePass123\",\r\n  \"gender\": \"M\",\r\n  \"age\": 30,\r\n  \"address\": \"Calle Falsa 123, Ciudad\",\r\n  \"phone\": \"+123456789\",\r\n  \"active\": true\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -625,7 +625,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"id\": 1,\r\n  \"dni\": \"12345678\",\r\n  \"name\": \"Juan Pérez\",\r\n  \"password\": \"securePass123\",\r\n  \"gender\": \"M\",\r\n  \"age\": 34,\r\n  \"address\": \"Calle Falsa 123, Ciudad\",\r\n  \"phone\": \"+123456789\",\r\n  \"isActive\": true\r\n}",
+							"raw": "{\r\n  \"id\": 1,\r\n  \"dni\": \"12345678\",\r\n  \"name\": \"Juan Pérez\",\r\n  \"password\": \"securePass123\",\r\n  \"gender\": \"M\",\r\n  \"age\": 20,\r\n  \"address\": \"Calle Falsa 123, Ciudad\",\r\n  \"phone\": \"+123456789\",\r\n  \"active\": true\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -677,7 +677,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"isActive\": false\r\n}",
+							"raw": "{\r\n    \"active\": true\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"

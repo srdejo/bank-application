@@ -29,13 +29,15 @@ public class AccountMapper {
         }
 
         Account account = new Account();
-        account.setNumber(accountDto.getNumber());
-        account.setType(accountDto.getType());
-        account.setInitialAmount(accountDto.getInitialAmount());
-        account.setActive(accountDto.isActive());
-        account.setClientId(accountDto.getClientId());
+        return getAccount(accountDto, account);
+    }
 
-        return account;
+
+    public static Account toEntity(Account account, AccountDto accountDto) {
+        if (accountDto == null) {
+            return null;
+        }
+        return getAccount(accountDto, account);
     }
 
     public static List<AccountDto> toDto(List<Account> accounts) {
@@ -56,5 +58,17 @@ public class AccountMapper {
         return accountDtos.stream()
                 .map(AccountMapper::toEntity)
                 .collect(Collectors.toList());
+    }
+
+
+    private static Account getAccount(AccountDto accountDto, Account account) {
+        account.setId(accountDto.getId());
+        account.setNumber(accountDto.getNumber());
+        account.setType(accountDto.getType());
+        account.setInitialAmount(accountDto.getInitialAmount());
+        account.setActive(accountDto.isActive());
+        account.setClientId(accountDto.getClientId());
+
+        return account;
     }
 }

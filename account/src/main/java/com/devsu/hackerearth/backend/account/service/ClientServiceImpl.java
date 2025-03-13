@@ -12,7 +12,7 @@ public class ClientServiceImpl implements ClientService {
 
     public ClientDto getClientById(Long clientId){
         try {
-           return restTemplate.getForEntity("http://localhost:8081/api/clients/"+clientId, ClientDto.class).getBody();
+           return restTemplate.getForEntity("http://localhost:8001/api/clients/"+clientId, ClientDto.class).getBody();
         } catch (Exception e) {
             return null;
         }

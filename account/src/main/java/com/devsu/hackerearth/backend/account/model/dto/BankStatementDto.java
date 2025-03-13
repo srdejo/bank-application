@@ -14,7 +14,7 @@ public class BankStatementDto {
 	private String accountNumber;
 	private String accountType;
 	private double initialAmount;
-	private boolean active;
+	private boolean isActive;
 	private String transactionType;
 	private double amount;
 	private double balance;

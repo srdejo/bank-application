@@ -32,16 +32,14 @@ public class ClientMapper {
             return null;
         }
         Client client = new Client();
-        client.setId(clientDto.getId());
-        client.setDni(clientDto.getDni());
-        client.setName(clientDto.getName());
-        client.setPassword(clientDto.getPassword());
-        client.setGender(clientDto.getGender());
-        client.setAge(clientDto.getAge());
-        client.setAddress(clientDto.getAddress());
-        client.setPhone(clientDto.getPhone());
-        client.setActive(clientDto.isActive());
-        return client;
+        return getClient(client, clientDto);
+    }
+
+    public static Client toEntity(Client client, ClientDto clientDto) {
+        if (clientDto == null) {
+            return null;
+        }
+        return getClient(client, clientDto);
     }
 
     // Convertir lista de Client a lista de ClientDto
@@ -56,5 +54,18 @@ public class ClientMapper {
         return clientDtos.stream()
             .map(ClientMapper::toEntity)
             .collect(Collectors.toList());
+    }
+
+    private static Client getClient(Client client, ClientDto clientDto) {
+        client.setId(clientDto.getId());
+        client.setDni(clientDto.getDni());
+        client.setName(clientDto.getName());
+        client.setPassword(clientDto.getPassword());
+        client.setGender(clientDto.getGender());
+        client.setAge(clientDto.getAge());
+        client.setAddress(clientDto.getAddress());
+        client.setPhone(clientDto.getPhone());
+        client.setActive(clientDto.isActive());
+        return client;
     }
 }

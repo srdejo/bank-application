@@ -4,7 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5892fb3-8ea0-49e3-85c1-42eb5cb82bc2" name="Changes" comment="Fix compilation" />
+    <list default="true" id="f5892fb3-8ea0-49e3-85c1-42eb5cb82bc2" name="Changes" comment="Fix some unit test">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/src/main/java/com/devsu/hackerearth/backend/account/model/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/account/src/main/java/com/devsu/hackerearth/backend/account/model/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/src/main/java/com/devsu/hackerearth/backend/account/model/dto/AccountDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/account/src/main/java/com/devsu/hackerearth/backend/account/model/dto/AccountDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/src/main/java/com/devsu/hackerearth/backend/account/model/dto/BankStatementDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/account/src/main/java/com/devsu/hackerearth/backend/account/model/dto/BankStatementDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/src/main/java/com/devsu/hackerearth/backend/account/model/dto/ClientDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/account/src/main/java/com/devsu/hackerearth/backend/account/model/dto/ClientDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/src/main/java/com/devsu/hackerearth/backend/account/model/dto/PartialAccountDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/account/src/main/java/com/devsu/hackerearth/backend/account/model/dto/PartialAccountDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/src/main/java/com/devsu/hackerearth/backend/account/model/mapper/AccountMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/account/src/main/java/com/devsu/hackerearth/backend/account/model/mapper/AccountMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/src/main/java/com/devsu/hackerearth/backend/account/model/mapper/TransactionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/account/src/main/java/com/devsu/hackerearth/backend/account/model/mapper/TransactionMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/src/main/java/com/devsu/hackerearth/backend/account/service/AccountServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/account/src/main/java/com/devsu/hackerearth/backend/account/service/AccountServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/src/main/java/com/devsu/hackerearth/backend/account/service/ClientServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/account/src/main/java/com/devsu/hackerearth/backend/account/service/ClientServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/devsu/hackerearth/backend/client/model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/devsu/hackerearth/backend/client/model/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/devsu/hackerearth/backend/client/model/dto/ClientDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/devsu/hackerearth/backend/client/model/dto/ClientDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/devsu/hackerearth/backend/client/model/dto/PartialClientDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/devsu/hackerearth/backend/client/model/dto/PartialClientDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/devsu/hackerearth/backend/client/model/mapper/ClientMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/devsu/hackerearth/backend/client/model/mapper/ClientMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/devsu/hackerearth/backend/client/service/ClientServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/devsu/hackerearth/backend/client/service/ClientServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collection_bank_postman.json" beforeDir="false" afterPath="$PROJECT_DIR$/collection_bank_postman.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,6 +38,13 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -28,32 +53,50 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;Spring Boot.AccountApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.ClientApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;F:/Proyectos/BankApplicationGit&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JUnit.sampleTest.testClientGettersAndSetter.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.AccountApplication.executor": "Debug",
+    "Spring Boot.ClientApplication.executor": "Debug",
+    "extract.method.default.visibility": "private",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "F:/Proyectos/BankApplicationGit/client/pom.xml",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15234375",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RunManager" selected="Spring Boot.AccountApplication">
+}]]></component>
+  <component name="RunManager" selected="Spring Boot.ClientApplication">
+    <configuration name="sampleTest.testClientGettersAndSetter" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="client" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.devsu.hackerearth.backend.client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.devsu.hackerearth.backend.client" />
+      <option name="MAIN_CLASS_NAME" value="com.devsu.hackerearth.backend.client.sampleTest" />
+      <option name="METHOD_NAME" value="testClientGettersAndSetter" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AccountApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="account" />
@@ -79,6 +122,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.ClientApplication" />
+        <item itemvalue="JUnit.sampleTest.testClientGettersAndSetter" />
       </list>
     </recent_temporary>
   </component>
@@ -102,6 +146,8 @@
       <workItem from="1741756357304" duration="8463000" />
       <workItem from="1741796914483" duration="1954000" />
       <workItem from="1741799406300" duration="76000" />
+      <workItem from="1741801123274" duration="61000" />
+      <workItem from="1741812863022" duration="4773000" />
     </task>
     <task id="LOCAL-00001" summary="Functional Apis, pending review failing test and f5 and f6">
       <option name="closed" value="true" />
@@ -127,7 +173,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741799475703</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Fix some unit test">
+      <option name="closed" value="true" />
+      <created>1741801158042</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1741801158042</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -137,6 +191,32 @@
     <MESSAGE value="Functional Apis, pending review failing test and f5 and f6" />
     <MESSAGE value="Add postman collection file" />
     <MESSAGE value="Fix compilation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix compilation" />
+    <MESSAGE value="Fix some unit test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix some unit test" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/account/src/main/java/com/devsu/hackerearth/backend/account/service/AccountServiceImpl.java</url>
+          <line>64</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/account/src/main/java/com/devsu/hackerearth/backend/account/model/mapper/AccountMapper.java</url>
+          <line>64</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/account/src/main/java/com/devsu/hackerearth/backend/account/model/mapper/AccountMapper.java</url>
+          <line>25</line>
+          <properties class="com.devsu.hackerearth.backend.account.model.mapper.AccountMapper" method="toEntity">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

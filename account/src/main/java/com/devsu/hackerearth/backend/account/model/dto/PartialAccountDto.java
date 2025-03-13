@@ -9,5 +9,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class PartialAccountDto {
 
-	private boolean active;
+	private boolean isActive;
 }

@@ -45,8 +45,8 @@ public class ClientServiceImpl implements ClientService {
 	@Override
 	public ClientDto update(ClientDto clientDto) {
 		// Update client
-		Client client = ClientMapper.toEntity(clientDto);
-		clientRepository.save(client);
+		Client client = findById(clientDto.getId());
+		clientRepository.save(ClientMapper.toEntity(client, clientDto));
 		return ClientMapper.toDto(client);
 	}
 
