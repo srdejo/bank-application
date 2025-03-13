@@ -37,7 +37,6 @@ public class ClientServiceImpl implements ClientService {
 	public ClientDto create(ClientDto clientDto) {
 		// Create client
 		Client client = ClientMapper.toEntity(clientDto);
-		client.setId(null);
 		clientRepository.save(client);
 		return ClientMapper.toDto(client);
 	}
@@ -66,6 +65,6 @@ public class ClientServiceImpl implements ClientService {
 	}
 
 	private Client findById(Long id){
-		return clientRepository.findById(id).orElseThrow(() -> new NotFoundException("CLient not found for id " + id));
+		return clientRepository.findById(id).orElseThrow(() -> new NotFoundException("Client not found for id " + id));
 	}
 }

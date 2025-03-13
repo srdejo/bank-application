@@ -14,13 +14,12 @@ public class AccountMapper {
         }
 
         return new AccountDto(
-            account.getId(),
-            account.getNumber(),
-            account.getType(),
-            account.getInitialAmount(),
-            account.isActive(),
-            account.getClientId()
-        );
+                account.getId(),
+                account.getNumber(),
+                account.getType(),
+                account.getInitialAmount(),
+                account.isActive(),
+                account.getClientId());
     }
 
     public static Account toEntity(AccountDto accountDto) {
@@ -29,9 +28,9 @@ public class AccountMapper {
         }
 
         Account account = new Account();
+
         return getAccount(accountDto, account);
     }
-
 
     public static Account toEntity(Account account, AccountDto accountDto) {
         if (accountDto == null) {
@@ -60,7 +59,6 @@ public class AccountMapper {
                 .collect(Collectors.toList());
     }
 
-
     private static Account getAccount(AccountDto accountDto, Account account) {
         account.setId(accountDto.getId());
         account.setNumber(accountDto.getNumber());
@@ -71,4 +69,5 @@ public class AccountMapper {
 
         return account;
     }
+
 }

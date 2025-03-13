@@ -38,7 +38,7 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public AccountDto getById(Long id) {
         // Get accounts by id
-        return AccountMapper.toDto(findById(id));
+		    return AccountMapper.toDto(findById(id));
     }
 
     @Override
@@ -47,7 +47,7 @@ public class AccountServiceImpl implements AccountService {
         clientExist(accountDto.getClientId());
         Account account = AccountMapper.toEntity(accountDto);
         accountRepository.save(account);
-        return AccountMapper.toDto(account);
+		    return AccountMapper.toDto(account);
     }
 
     @Override
@@ -56,22 +56,24 @@ public class AccountServiceImpl implements AccountService {
         clientExist(accountDto.getClientId());
         Account account = findById(accountDto.getId());
         accountRepository.save(AccountMapper.toEntity(account, accountDto));
-        return AccountMapper.toDto(account);
+        return accountDto;
     }
 
     @Override
     public AccountDto partialUpdate(Long id, PartialAccountDto partialAccountDto) {
         // Partial update account
         Account account = findById(id);
+        clientExist(account.getClientId());
         account.setActive(partialAccountDto.isActive());
         accountRepository.save(account);
-        return AccountMapper.toDto(account);
+		    return AccountMapper.toDto(account);
     }
 
     @Override
     public void deleteById(Long id) {
         // Delete account
         Account account = findById(id);
+        clientExist(account.getClientId());
         accountRepository.delete(account);
     }
     
